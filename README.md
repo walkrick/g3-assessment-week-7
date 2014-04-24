@@ -16,6 +16,10 @@ To do so, run the following commands:
     psql -d postgres -f scripts/create_databases.sql
     git checkout -b `whoami`
 
+## Pushing your branch
+
+    git push origin `whoami`
+
 ## Migrations
 
 Run the migrations in the development database using:
