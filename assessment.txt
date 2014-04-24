@@ -1,0 +1,17 @@
+Total:
+10:20 -
+
+Add Comments:
+start time -
+end time -
+
+Bug:
+start time -
+end time -
+
+
+Notes:
+
+- had to create a gschool_user postgres user...assuming that everyone has this user set up
+
+

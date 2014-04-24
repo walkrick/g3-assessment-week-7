@@ -38,6 +38,8 @@ Run the migrations in the testing database using
 
     rerun rackup
 
+The app will be available at http://localhost:9292/
+
 ## Running specs
 
 To run specs, run:
