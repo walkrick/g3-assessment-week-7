@@ -1,6 +1,7 @@
 $LOAD_PATH.unshift('./')
 
 require 'sequel'
+require 'lib/country_list'
 require 'application'
 require 'dotenv'
 
