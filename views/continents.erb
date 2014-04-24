@@ -3,7 +3,7 @@
 <ul>
   <% continents.each do |continent| %>
     <li>
-      <a href="/continents/<%= continent %>"><%= continent %></a>
+      <a href="/continents/<%= URI.encode(continent) %>"><%= continent %></a>
     </li>
   <% end %>
 </ul>
