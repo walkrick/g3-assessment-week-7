@@ -4,6 +4,7 @@ gem 'sinatra', '~> 1.4.5'
 gem 'sequel', '~> 4.9.0'
 gem 'pg', '~> 0.17.1'
 gem 'dotenv', '~> 0.10.0'
+gem 'rake'
 
 group :test do
   gem 'database_cleaner', '~> 1.2.0'
