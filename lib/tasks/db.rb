@@ -14,15 +14,23 @@ namespace :db do
 
     raise "Missing Connection string" if connection_string.nil?
 
-    db = Sequel.connect(connection_string)
-    message = if args[:version].nil?
-                Sequel::Migrator.run(db, migrations_directory)
-                'Migrated to latest'
-              else
-                Sequel::Migrator.run(db, migrations_directory, target: version.to_i)
-                "Migrated to version #{version}"
-              end
+    if migrations_present?
+      db = Sequel.connect(connection_string)
+      message = if args[:version].nil?
+                  Sequel::Migrator.run(db, migrations_directory)
+                  'Migrated to latest'
+                else
+                  Sequel::Migrator.run(db, migrations_directory, target: version.to_i)
+                  "Migrated to version #{version}"
+                end
 
-    puts message if environment != 'test'
+      puts message if environment != 'test'
+    end
   end
+end
+
+def migrations_present?
+  migrations_directory = File.expand_path('../../../migrations', __FILE__)
+  entries = Dir.entries(migrations_directory).reject{|file| file.start_with?('.')}
+  entries.any?
 end
