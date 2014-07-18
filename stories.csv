@@ -1,0 +1,13 @@
+Id,Title,Labels,Iteration,Iteration Start,Iteration End,Type,Estimate,Current State,Created at,Accepted at,Deadline,Requested By,Description,URL,Owned By,Task,Task Status,Task,Task Status
+70371452,A visitor can add messages to the site,"",,,,feature,1,unstarted,"Apr 24, 2014",,,Jeff Taggart,"As a visitor
+When I go to the home page
+I see 
+* a name text field
+* a message text field
+* a submit button that says ""Add Message""
+
+When I click the button, I see my message appear beneath the message box.  It shows my message and my name.
+"
+70371454,A visitor can see all messages,"",,,,feature,1,unstarted,"Apr 24, 2014",,,Jeff Taggart,"When I go to the homepage, 
+I see all of the other messages that other people have left.",https://www.pivotaltracker.com/story/show/70371454,
+70371456,Clicking on a continent shows the wrong things,"",,,,bug,,unstarted,"Apr 24, 2014",,,Jeff Taggart
