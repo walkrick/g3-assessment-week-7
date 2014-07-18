@@ -1,2 +1,3 @@
-require_relative './boot'
+require './application'
+
 run Application

@@ -1,27 +1,20 @@
 ENV['RACK_ENV'] = 'test'
-
-require_relative '../boot'
-
-require 'lib/tasks/db'
-require 'database_cleaner'
+require 'gschool_database_connection'
 require 'capybara/rspec'
 
+require './application'
 Capybara.app = Application
 
 RSpec.configure do |config|
-  config.order = 'random'
+  config.before do
+    database_connection = GschoolDatabaseConnection::DatabaseConnection.establish(ENV['RACK_ENV'])
 
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
+    database_connection.sql('BEGIN')
   end
 
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
+  config.after do
+    database_connection = GschoolDatabaseConnection::DatabaseConnection.establish(ENV['RACK_ENV'])
 
-  config.after(:each) do
-    DatabaseCleaner.clean
+    database_connection.sql('ROLLBACK')
   end
-
 end

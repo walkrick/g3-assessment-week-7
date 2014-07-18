@@ -1,6 +1,13 @@
 require 'sinatra/base'
+require 'gschool_database_connection'
+
+require './lib/country_list'
 
 class Application < Sinatra::Application
+
+  def initialize
+    super
+  end
 
   get '/' do
     erb :index
