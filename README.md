@@ -1,7 +1,5 @@
 # Sinatra Assessment
 
-This application is the private repository for the gSchool Sinatra Assessment.
-
 ## Setup
 
 1. Fork and clone this repository
@@ -9,6 +7,7 @@ This application is the private repository for the gSchool Sinatra Assessment.
 1. `bundle install`
 1. `cp config/database.yml.example config/database.yml`
 1. `rake db:create` to create your test and development databases
+1. Complete each story in Tracker
 
 ## Migrations
 
