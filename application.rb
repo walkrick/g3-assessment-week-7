@@ -2,16 +2,27 @@ require 'sinatra/base'
 require 'gschool_database_connection'
 
 require './lib/country_list'
+require './lib/messages'
+
 
 class Application < Sinatra::Application
+  enable :sessions
+
 
   def initialize
     super
-    @database_connection = GschoolDatabaseConnection::DatabaseConnection.establish(ENV['RACK_ENV'])
+    @database_connection = Messages.new(GschoolDatabaseConnection::DatabaseConnection.establish(ENV['RACK_ENV']))
   end
 
   get '/' do
     erb :index
+  end
+
+  post '/'do
+    @database_connection.create(params[:username], params[:message])
+    # flash[:success] = "Thank you for me"
+    redirect "/"
+    # erb :index
   end
 
   get '/continents' do
